@@ -24,11 +24,14 @@ class BusinessCard extends StatelessWidget {
           onTap: () {
             onPhotoPressed(star);
           },
-          child: Image.network(
-            star.imageUrl,
-            width: 200,
-            height: 200,
-            fit: BoxFit.cover,
+          child: Hero(
+            tag: star.id,
+            child: Image.network(
+              star.imageUrl,
+              width: 200,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         InkWell(

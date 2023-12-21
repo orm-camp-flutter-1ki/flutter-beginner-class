@@ -14,7 +14,10 @@ class StarDetailScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Image.network(star.imageUrl),
+          Hero(
+            tag: star.id,
+            child: Image.network(star.imageUrl),
+          ),
           Text(star.title),
           Text(star.description),
         ],
