@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
 }
 
 class CheckBoxListScreen extends StatefulWidget {
-
   const CheckBoxListScreen({super.key});
 
   @override
@@ -33,7 +32,7 @@ class CheckBoxListScreen extends StatefulWidget {
 class _CheckBoxListScreenState extends State<CheckBoxListScreen> {
   final repository = StarRepository();
 
-  final favorites = <Star>{};
+  final favorites = <int>{};
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +46,13 @@ class _CheckBoxListScreenState extends State<CheckBoxListScreen> {
         children: stars.map((e) {
           return CheckboxListTile(
             title: Text(e.title),
-            value: favorites.contains(e),
+            value: favorites.contains(e.id),
             onChanged: (bool? value) {
               setState(() {
                 if (value! == true) {
-                  favorites.add(e);
+                  favorites.add(e.id);
                 } else {
-                  favorites.remove(e);
+                  favorites.remove(e.id);
                 }
               });
             },
