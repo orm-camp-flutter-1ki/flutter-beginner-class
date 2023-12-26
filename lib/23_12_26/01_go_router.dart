@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'router.dart';
+import 'routes.dart';
 
 void main() {
   runApp(const MyApp());
