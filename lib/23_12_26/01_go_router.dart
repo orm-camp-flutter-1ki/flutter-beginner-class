@@ -38,6 +38,9 @@ class StartScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             const person = Person(name: '홍길동', age: 10);
+
+            // context.push('/end', extra: person);
+
             context.push(
               Uri(
                 path: '/end',

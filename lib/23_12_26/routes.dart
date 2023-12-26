@@ -14,8 +14,12 @@ final router = GoRouter(
     GoRoute(
       path: '/end',
       builder: (context, state) {
+        // jsonString 으로 넘겨 받는 방식
         final person =
             Person.fromJson(jsonDecode(state.uri.queryParameters['사람']!));
+
+        // Object로 넘겨 받는 방식
+        // final person = state.extra! as Person;
 
         return EndScreen(person: person);
       },
