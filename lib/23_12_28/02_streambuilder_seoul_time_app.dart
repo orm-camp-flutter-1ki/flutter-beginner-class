@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_beginner_class/00_repository/seoul_time_repository.dart';
 import 'package:flutter_beginner_class/23_12_28/data_source/time_api.dart';
 
 import 'model/time.dart';
@@ -18,22 +19,24 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SeoulTimeApp(),
+      home: SeoulTimeApp(),
     );
   }
 }
 
 class SeoulTimeApp extends StatelessWidget {
-  const SeoulTimeApp({super.key});
+  final _repository = SeoulTimeRepository();
+
+  SeoulTimeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FutureBuilder 방식'),
+        title: const Text('StreamBuilder 방식'),
       ),
-      body: FutureBuilder<Time>(
-        future: TimeApi().getTime(),
+      body: StreamBuilder<Time>(
+        stream: _repository.getTimeStream(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
